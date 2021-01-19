@@ -71,7 +71,7 @@ export class ContactComponent implements OnInit {
       ])]
     });
   }
-  newQuery() {
+  newQuery(): void{
     if (!(this.reqForm.pristine || this.reqForm.invalid)) {
       this.appService.requestSubmit(this.reqForm.value);
       this.reqForm.reset();
@@ -87,13 +87,13 @@ export class ContactComponent implements OnInit {
       }, 3000);
     }
   }
-  sanitize(url: string) {
+  sanitize(url: string): any{
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
-  ngOnInit() {
-    $('.form-control').focus(function() {
+  ngOnInit(): void{
+    $('.form-control').focus(() => {
       $(this).parent('.form-group').addClass('active');
-    }).blur(function() {
+    }).blur(() => {
       if (!($(this).val())) { $(this).parent('.form-group').removeClass('active'); }
     });
   }

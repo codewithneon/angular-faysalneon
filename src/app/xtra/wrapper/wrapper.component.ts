@@ -45,7 +45,7 @@ export class WrapperComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    $(window).scroll(function() {
+    $(window).scroll(() => {
       if ($(this).scrollTop() > 80) {
         $('.scroll-up:hidden').stop(true, true).fadeIn();
       } else {
