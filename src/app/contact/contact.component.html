@@ -1,0 +1,178 @@
+<app-wrapper>
+  <section class="section-contact">
+      <div class="header">
+          <h5 class="subtitle">Get In Touch</h5>
+          <h2 class="title">CONTACT ME</h2>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="card-title">
+                              <i class="mdi mdi-email-check-outline"></i> <b>email</b>
+                          </div>
+                          <div class="card-info">
+                              <div class="sub-title" *ngFor="let li of emailList">
+                                  <a [href]="sanitize(li.link)" target="_blank" class="btn link">{{li.id}}</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="card-title">
+                              <i class="mdi mdi-facebook-messenger"></i> <b>messanger</b>
+                          </div>
+                          <div class="card-info">
+                              <div class="sub-title" *ngFor="let li of messangerList">
+                                  <a [href]="sanitize(li.link)" target="_blank" class="btn link">{{li.id}}</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="card-title">
+                              <i class="mdi mdi-skype"></i> <b>skype</b>
+                          </div>
+                          <div class="card-info">
+                              <div class="sub-title" *ngFor="let li of skypeList">
+                                  <a [href]="sanitize(li.link)" target="_blank" class="btn link">{{li.id}}</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                  <div class="card card-contact">
+                      <form [formGroup]='reqForm' class="card-body" (ngSubmit)="newQuery()" novalidate>
+                          <div class="row">
+                              <div class="col-md-6 col-lg-5">
+                                  <div class="form-group">
+                                      <label class="form-label" for="name">name</label>
+                                      <input type="text" formControlName="name" id="name" class="form-control" required>
+                                      <ng-template [ngIf]="reqForm.controls['name'].dirty || reqForm.controls['name'].touched">
+                                          <small *ngIf="!(reqForm.controls['name'].invalid); else nameError" class="form-info text-success">Name Is Looks Good</small>
+                                          <ng-template #nameError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['name'].errors['required']?'Name Is Required':''}}
+                                                  {{reqForm.controls['name'].errors['maxlength']? 'Characters - '+reqForm.controls['name'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['name'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['name'].errors['minlength']? 'Characters - '+reqForm.controls['name'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['name'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-lg-7">
+                                  <div class="form-group">
+                                      <label class="form-label" for="company">company</label>
+                                      <input type="text" formControlName="company" id="company" class="form-control">
+                                      <ng-template [ngIf]="reqForm.controls['company'].dirty || reqForm.controls['company'].touched">
+                                          <small *ngIf="!(reqForm.controls['company'].invalid); else companyError" class="form-info text-success">Company Name Is not required</small>
+                                          <ng-template #companyError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['company'].errors['maxlength']? 'Characters - '+reqForm.controls['company'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['company'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['company'].errors['minlength']? 'Characters - '+reqForm.controls['company'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['company'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="form-label" for="email"> email</label>
+                                      <input type="email" formControlName="email" id="email" class="form-control" required>
+                                      <ng-template [ngIf]="reqForm.controls['email'].dirty || reqForm.controls['email'].touched">
+                                          <small *ngIf="!(reqForm.controls['email'].invalid); else emailError" class="form-info text-success">Email Is Looks Good</small>
+                                          <ng-template #emailError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['email'].errors['pattern']?'Invalid Email':''}}
+                                                  {{reqForm.controls['email'].errors['required']?'Email Is Required':''}}
+                                                  {{reqForm.controls['email'].errors['maxlength']? '| Characters - '+reqForm.controls['email'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['email'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['email'].errors['minlength']? '| Characters - '+reqForm.controls['email'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['email'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="form-label" for="mobile" > mobile</label>
+                                      <input type="text" formControlName="mobile" id="mobile" class="form-control" required>
+                                      <ng-template [ngIf]="reqForm.controls['mobile'].dirty || reqForm.controls['mobile'].touched">
+                                          <small *ngIf="!(reqForm.controls['mobile'].invalid); else mobileError" class="form-info text-success">Mobile Number Is Looks Good</small>
+                                          <ng-template #mobileError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['mobile'].errors['pattern']?'Invalid Mobile Number':''}}
+                                                  {{reqForm.controls['mobile'].errors['required']?'Mobile Number is required.':''}}
+                                                  {{reqForm.controls['mobile'].errors['pattern'] && (reqForm.controls['mobile'].errors['maxlength']|| reqForm.controls['mobile'].errors['minlength']) ?' | ':''}}
+                                                  {{reqForm.controls['mobile'].errors['maxlength']? 'Characters - '+reqForm.controls['mobile'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['mobile'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['mobile'].errors['minlength']? 'Characters - '+reqForm.controls['mobile'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['mobile'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <label class="form-label" for="subject">subject</label>
+                                      <input type="text" formControlName="subject" id="subject" class="form-control" required>
+                                      <ng-template [ngIf]="reqForm.controls['subject'].dirty || reqForm.controls['subject'].touched">
+                                          <small *ngIf="!(reqForm.controls['subject'].invalid); else nameError" class="form-info text-success">Subject Is Looks Good</small>
+                                          <ng-template #nameError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['subject'].errors['required']?'Subject Is Required':''}}
+                                                  {{reqForm.controls['subject'].errors['maxlength']? 'Characters - '+reqForm.controls['subject'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['subject'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['subject'].errors['minlength']? 'Characters - '+reqForm.controls['subject'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['subject'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <label class="form-label" for="comment">comment</label>
+                                      <textarea formControlName="comment"  class="form-control" rows="6" id="comment" required></textarea>
+                                      <ng-template [ngIf]="reqForm.controls['comment'].dirty || reqForm.controls['comment'].touched">
+                                          <small *ngIf="!(reqForm.controls['comment'].invalid); else nameError" class="form-info text-success">Comment Is Looks Good</small>
+                                          <ng-template #nameError>
+                                              <small class="form-info text-danger">
+                                                  {{reqForm.controls['comment'].errors['required']?'Comment Is Required':''}}
+                                                  {{reqForm.controls['comment'].errors['maxlength']? 'Characters - '+reqForm.controls['comment'].errors['maxlength'].actualLength+' / '+'Max- '+reqForm.controls['comment'].errors['maxlength'].requiredLength:''}}
+                                                  {{reqForm.controls['comment'].errors['minlength']? 'Characters - '+reqForm.controls['comment'].errors['minlength'].actualLength+' / '+'Min- '+reqForm.controls['comment'].errors['minlength'].requiredLength:''}}
+                                              </small>
+                                          </ng-template>
+                                      </ng-template>
+                                  </div>
+                              </div>
+                          </div>
+                          <div *ngIf="status.active" class="row">
+                              <div class="col-12 mb-2">
+                                  <div class="p-2 alert" [ngClass]="status.color">{{status.text}}</div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <button [disabled]="this.reqForm.pristine || this.reqForm.invalid" type="submit" class="btn btn-submit">submit</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</app-wrapper>

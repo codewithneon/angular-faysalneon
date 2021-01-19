@@ -1,0 +1,48 @@
+<app-wrapper>
+  <section *ngIf="serivceList?.length > 0" class="section-service">
+      <div class="header">
+          <h4 class="subtitle">What Love I Do</h4>
+          <h3 class="title">My Services</h3>
+      </div>
+      <div class="container">
+          <div class="row py-3">
+              <article *ngFor="let service of serivceList" class="mb-4 col-md-6 col-lg-4">
+                  <div class="card">
+                      <div class="card-header">
+                          <div class="card-title">{{service.title}}</div>
+                      </div>
+                      <div class="card-body">
+                          <p class="desc">{{service.desc}}</p>
+                      </div>
+                      <div class="card-footer">
+                          <span *ngFor="let item of service.resource?.split(',')" class="badge">{{item}}</span>
+                      </div>
+                  </div>
+              </article>
+          </div>
+      </div>
+  </section>
+  <section *ngIf="clientList?.length > 0 " class="section-client" [ngStyle]="{'background-image':'url(' + clientBg + ')'}">
+      <div class="cover">
+          <div class="header">
+              <h5 class="subtitle">Recent Client and Partners</h5>
+              <h2 class="title">My Cleints & Partners</h2>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-12" data-clientList>
+                      <div *ngFor="let item of clientList" class="logo-slide slick-slide">
+                          <img [src]="item.logo" [alt]="item.title" width="150" height="150">
+                      </div>
+                  </div>
+              </div>
+              <div class="row justify-content-center">
+                  <div class="trigger">
+                      <button class="btn btn-next"><i class="mdi mdi-arrow-left"></i></button>
+                      <button class="btn btn-prev"><i class="mdi mdi-arrow-right"></i></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</app-wrapper>

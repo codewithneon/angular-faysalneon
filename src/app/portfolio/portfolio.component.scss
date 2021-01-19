@@ -1,0 +1,162 @@
+@import 'src/resources/styles/variable';
+.section-portfolio{
+    min-height: 80vh;
+    .sectors{
+        padding: 50px 0;
+        text-align: center;
+        .btn-sector{
+            border: none;
+            color: $light;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            text-transform: uppercase;
+            background-color: transparent;
+            &::after{
+                content: '';
+                width: 100%;
+                height: 1px;
+                display: block;
+                margin-top: 5px;
+                background-color: transparent;
+            }
+            &.active{
+                color: $warning;
+                &::after{
+                    background-color: $warning;
+                }
+            }
+            &:focus{
+                outline: 0;
+            }
+        }
+    }
+    .work-item{
+        padding: 10px;
+        overflow: hidden;
+        position: relative;
+        @include animated;
+        .overlay{
+            top: 15px;
+            left: 15px;
+            opacity: 0;
+            right: 15px;
+            bottom: 15px;
+            padding: 30px;
+            color: $light;
+            cursor: pointer;
+            position: absolute;
+            visibility: hidden;
+            transform: scale(1.1, 1.1);
+            transition: all 0.5s ease-in-out;
+            background: rgba($color: $dark, $alpha: 0.98);
+            &:hover{
+                text-decoration: none;
+            }
+            .icon-img{
+                top: 30px;
+                right: 30px;
+                padding: 0 10px;
+                position: absolute;
+                border-radius: 4px;
+                background-color: $light-1;
+                .mdi{
+                    font-size: 40px;
+                }
+            }
+            .info-img{
+                left: 30px;
+                bottom: 30px;
+                position: absolute;
+                h5{
+                    font-size: 16px;
+                    font-weight: 600;
+                    visibility: hidden;
+                    margin-left: 320px;
+                    white-space: nowrap;
+                    text-transform: uppercase;
+                    transition: all 0.6s ease-in-out;
+                }
+                p{
+                    color: $warning;
+                    font-size: 13px;
+                    visibility: hidden;
+                    margin-left: -150px;
+                    transition: all 0.5s ease-in-out;
+                }
+            }
+        }
+        &:hover{
+            .overlay {
+                opacity: 1;
+                visibility: visible;
+                -moz-transform: scale(1, 1);
+                transform: scale(1, 1);
+                .info-img{
+                    h5{
+                        margin-left: 0px;
+                        visibility: visible;
+                    }
+                    p{
+                        color: $warning;
+                        font-size: 14px;
+                        margin-left: 0px;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+.section-testimonial{
+    min-height: 20vh;
+    background-color: $dark;
+    .card-testimonial{
+        margin: 10px;
+        background-color: $dark-2;
+        .client-info{
+            display: flex;
+            align-items: center;
+            .testimonial-img{
+                padding:5px;
+                img{
+                    border-radius: 100%;
+                }
+            }
+            .testimonial-details{
+                padding: 5px;
+                h6{
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                p{
+                    margin: 0;
+                    font-size: 14px;
+                    color: $warning;
+                }
+            }
+            .quote-icon {
+                top: 30px;
+                right: 30px;
+                font-size: 30px;
+                color: $light-1;
+                position: absolute;
+            }
+        }
+    }
+    .trigger{
+        margin: auto;
+        text-align: center;
+        .btn{
+            margin: 15px;
+            color: $warning;
+            border:1px solid $warning;
+            background-color: transparent;
+            &:hover{
+                color: $dark-2;
+                border:1px solid $light;
+                background-color: $warning;
+            }
+        }
+    }
+}

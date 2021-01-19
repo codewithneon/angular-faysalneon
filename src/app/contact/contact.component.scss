@@ -1,0 +1,114 @@
+@import 'src/resources/styles/variable';
+.section-contact{
+    background-size: cover;
+    background-color: $dark-3;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/images/map_img.png);
+    .card{
+        margin-top: 20px;
+        border-radius: 4px;
+        background-color: $dark-1;
+        .card-title{
+            vertical-align: middle;
+            .mdi{
+                padding: 10px 15px;
+                color: $warning;
+                font-size: 25px;
+                margin-right: 10px;
+                background-color: $dark-2;
+            }
+            b{
+                text-transform: uppercase;
+            }
+        }
+        .card-info{
+            font-size: 15px;
+            color: $light-1;
+            padding-left: 5px;
+            .sub-title{
+                .btn.link{
+                    display: block;
+                    color: $light;
+                    text-align: left;
+                    text-transform: lowercase;
+                    &:hover,&:focus{
+                        color: $warning;
+                        box-shadow: none;
+                    }
+                    &:before {
+                        color: $warning;
+                        content: "\21D2";
+                        padding-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .card-contact{
+        .form-group{
+            padding: 10px 0;
+            position: relative;
+            .form-label{
+                top: 22px;
+                left: 20px;
+                padding: 0 5px;
+                cursor: pointer;
+                color: $light-1;
+                position: absolute;
+                border-radius: 4px;
+                background-color: transparent;
+                text-transform: uppercase;
+                transition: all 0.3s ease-out;
+            }
+            .form-control {
+                color: $light;
+                border-color: $warning;
+                padding: 25px 20px 22px;
+                background-color: $dark-2;
+                &:focus{
+                    box-shadow: none;
+                }
+            }
+            .form-info{
+                right: 2px;
+                bottom: -12px;
+                position: absolute;
+            }
+            &.active{
+                .form-label{
+                    top: 0;
+                    font-size: 14px;
+                    color: $light;
+                    background-color: $dark-1;
+                }
+            }
+        }
+        .alert{
+            &.success{
+                background-color: green;
+            }
+        }
+        .btn{
+            width: 100%;
+            display: block;
+            font-weight: bold;
+            text-transform: uppercase;
+            &.btn-submit{
+                color: $dark-2;
+                background-color: $warning;
+                &:hover{
+                    color: $light;
+                    border:1px solid $warning;
+                    background-color: transparent;
+                }
+                &:disabled,&[disabled]{
+                    color: $warning;
+                    cursor: not-allowed;
+                    border-color: $warning;
+                    background-color: $dark-3;
+                }
+            }
+        }
+    }
+}

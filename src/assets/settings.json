@@ -1,0 +1,36 @@
+{
+    "logo": "assets/images/logo.png",
+    "homeBg": "assets/images/home.jpg",
+    "clientBg": "assets/images/home.jpg",
+    "statisticsBg": "assets/images/home.jpg",
+    "menu": [
+        {
+            "icon": "account-box-multiple",
+            "title": "about",
+            "link": "/about",
+            "blank": false,
+            "active": true
+        },
+        {
+            "icon": "cogs",
+            "title": "service",
+            "link": "/service",
+            "blank": false,
+            "active": true
+        },
+        {
+            "icon": "television-guide",
+            "title": "portfolio",
+            "link": "/portfolio",
+            "blank": false,
+            "active": true
+        },
+        {
+            "icon": "email-multiple-outline",
+            "title": "contact",
+            "link": "/contact",
+            "blank": false,
+            "active": true
+        }
+    ]
+}

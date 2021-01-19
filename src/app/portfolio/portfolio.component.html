@@ -1,0 +1,73 @@
+<app-wrapper>
+  <section *ngIf="portfolioItems?.length > 0" class="section-portfolio">
+      <div class="header">
+          <h5 class="subtitle">Few Latest Project are listed here</h5>
+          <h2 class="title">My Portfolio</h2>
+      </div>
+      <div class="container">
+          <div class="row" *ngIf="portfolioSector?.length > 0">
+              <div class="col-12 sectors">
+                  <button *ngFor="let item of portfolioSector" class="btn-sector" (click)="currSector=item.id" [ngClass]="{active: currSector===item.id}" type="button">
+                      {{item.title}}
+                  </button>
+              </div>
+          </div>
+          <div class="row work-list no-gutters">
+              <article *ngFor="let item of portfolioItems | portfolio:currSector" class="col-lg-4 work-item zoomIn">
+                  <div class="image">
+                      <img class="thumb" [src]="item.thumb" [alt]="item.title" width="100%">
+                  </div>
+                  <div class="overlay" (click)="previewItem(item.title, item.preview, item.link)">
+                      <span class="icon-img"> <i class="mdi mdi-image"></i> </span>
+                      <div class="info-img">
+                          <h5>{{item.title}}</h5>
+                          <p>{{item.subtitle}}</p>
+                      </div>
+                  </div>
+              </article>
+          </div>
+      </div>
+  </section>
+  <section *ngIf="testimonial?.length > 0" class="section-testimonial">
+      <div class="header">
+          <h5 class="subtitle">My Cleints Comments</h5>
+          <h2 class="title">Happy Clients</h2>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-12" data-testimonial>
+                  <div *ngFor="let item of testimonial" class="card card-testimonial slick-slide">
+                    <div class="card-body">
+                      <div class="client-info">
+                          <div class="testimonial-img">
+                              <img [src]="item.thumb" [alt]="item.title" width="50" height="50">
+                          </div>
+                          <div class="testimonial-details">
+                              <h6> {{item.name}} </h6>
+                              <p> {{item.title}} </p>
+                          </div>
+                          <div class="quote-icon">
+                              <i class="mdi mdi-quote-right mdi-2x"></i>
+                          </div>
+                      </div>
+                      <div class="inner-test">
+                          <p class="text">{{item.comment}}</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-center">
+              <div class="trigger">
+                  <button class="btn btn-next"><i class="mdi mdi-arrow-left"></i></button>
+                  <button class="btn btn-prev"><i class="mdi mdi-arrow-right"></i></button>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="modal fade" id="lightBox" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content position-relative"></div>
+      </div>
+  </section>
+</app-wrapper>

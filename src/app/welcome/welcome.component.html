@@ -1,0 +1,37 @@
+<section class="welcome" [ngStyle]="{'background-image':'url(' + homeBg + ')'}">
+    <div id="particle"></div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="welcome">{{welcome}}</h2>
+                    <h4 class="intro">{{intro}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <app-social></app-social>
+                </div>
+            </div>
+            <div class="row" *ngIf="info?.length > 0">
+                <div class="col-12 pt-3">
+                    <div class="typing">
+                        <span id="typed">{{info[0]}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 py-3">
+                    <a [routerLink]="['/service']" class="btn btn-service">My Service</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-5 mt-5 text-center">
+                    <a class="brand" [routerLink]="['/about']" data-title="About Me">
+                        <img  [src]="logo" [alt]="welcome"  width="60" height="60">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

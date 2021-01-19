@@ -1,0 +1,37 @@
+<div class="route-bar progress" *ngIf="routing">
+    <div class="animated progress-bar" style="width:100%"></div>
+</div>
+<nav class="app-nav navbar navbar-expand-lg navbar-dark sticky-top">
+    <a class="navbar-brand" routerLink="/"><img [src]="logo" [alt]="title" width="30"></a>
+    <a class="navbar-brand" routerLink="/"><b class="title">{{title}}</b></a>
+    <button class="navbar-toggler" data-target="#mainNav" data-toggle="collapse">
+        <b class="navbar-toggler-icon"></b>
+    </button>
+    <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/">
+                    <i class="mdi mdi-home"></i> <b>Home</b>
+                </a>
+            </li>
+            <li class="nav-item" *ngFor="let nav of appMenu">
+                <a class="nav-link" [routerLink]="nav.link"  routerLinkActive="active">
+                    <i class="mdi mdi-{{nav.icon}}"></i>
+                    <b class="ml-1">{{nav.title}}</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main class='app-body animated slow' [ngClass]="{'fadeIn' : routePage}">
+    <ng-content></ng-content>
+</main>
+<footer class="app-footer">
+    <app-social></app-social>
+    <p class="copyright">{{thisYear}} All Rights Reserved In <a href="https://codewithneon.web.app" target="_blank">codewithneon</a> </p>
+</footer>
+<aside class="app-sidebar">
+    <b class="scroll-up" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="display: none;">
+        <i class="mdi mdi-chevron-triple-up"></i>
+    </b>
+</aside>

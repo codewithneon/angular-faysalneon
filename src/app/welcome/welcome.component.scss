@@ -1,0 +1,86 @@
+@import 'src/resources/styles/variable';
+.welcome{
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    text-transform: capitalize;
+    background-position: center;
+    background-repeat: no-repeat;
+    #particle{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+    }
+    .content{
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        flex-direction: row;
+        padding: 3rem 0 1rem;
+        background-color: rgba($color: $dark, $alpha: 0.5);
+        .intro{
+            color: $warning;
+        }
+        .btn-service{
+            color:$warning;
+            min-width: 180px;
+            border-radius: 3px;
+            border:1px solid $warning;
+            background-color: rgba($color: $dark, $alpha: 0.7);
+        }
+        .typing {
+            min-width: 400px;
+            min-height: 40px;
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+            background-color:rgba($color: $dark, $alpha: 0.8);
+        }
+        .brand{
+            padding: 3px;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            background-color: $light;
+            &::before{
+                top: -38px;
+                opacity: 1;
+                left: -15px;
+                width: 100px;
+                display: block;
+                color: $warning;
+                position: absolute;
+                border-radius: 4px;
+                padding-bottom: 2px;
+                background-color: $dark;
+                content:attr(data-title);
+                border: 1px solid $warning;
+                transition: all 1s ease-out;
+            }
+            &::after{
+                left: 22px;
+                top: -10px;
+                opacity: 1;
+                content: '';
+                display: block;
+                position: absolute;
+                transition: all 1s ease-out;
+                border: 10px solid transparent;
+                border-top-color: $warning;
+            }
+            &:hover{
+                background-color: $light;
+                &::before, &::after{
+                    opacity: 0;
+                    display: none;
+                }
+            }
+        }
+        @media (max-width:768.1px){
+            text-align: center;
+            .typing {
+                min-width: 280px;
+            }
+        }
+    }
+}

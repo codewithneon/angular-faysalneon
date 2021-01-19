@@ -1,0 +1,72 @@
+@import 'src/resources/styles/variable';
+.bg{
+    &-d{
+        background-color: $dark;
+        &-1{
+            background-color: $dark-1;
+        }
+        &-2{
+            background-color: $dark-2;
+        }
+    }
+}
+@media (min-width:991px){
+    ::-webkit-scrollbar {
+        width: 5px;
+        &-track {
+            background: $dark;
+        }
+        &-thumb {
+            border-radius: 4px;
+            background: $warning;
+            &:hover {
+                border: 1px solid $warning;
+                background: $dark;
+            }
+        }
+    }
+}
+html{
+    color: $light;
+    background-color: $dark-1;
+    body{
+        color: $light;
+        background-color: $dark-1;
+        font-family: 'Raleway', sans-serif;
+    }
+}
+i.mdi {
+    color: $light;
+    font-size: 22px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        color: $warning;
+    }
+}
+[class^="section-"]{
+    position: relative;
+    padding: 50px 0 50px;
+    .header{
+        margin: 30px 0 50px;
+        display: block;
+        text-align: center;
+        &::after{
+            content: '';
+            height: 2px;
+            width: 180px;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 100%;
+            background-color: $warning;
+        }
+        .title{
+            margin: 0;
+            color: $light-1;
+            text-transform: uppercase;
+        }
+        .subtitle{
+            color:$warning;
+            text-transform: capitalize;
+        }
+    }
+}

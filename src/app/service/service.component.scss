@@ -1,0 +1,86 @@
+@import 'src/resources/styles/variable';
+.section-service{
+    min-height: 90vh;
+    .card{
+        border-radius: 4px;
+        background-color: $dark-2;
+        transition: all 0.6s ease-out;
+        .card-header{
+            color: $light;
+            .card-title{
+                color: $light;
+                margin: 0;
+                font-weight: bold;
+                text-transform: uppercase;
+                &::after{
+                    width: 40px;
+                    content: '';
+                    height: 1px;
+                    display: block;
+                    margin-top: 4px;
+                    background-color: $warning;
+                    transition: all 1s ease-out;
+                }
+            }
+        }
+        .card-body{
+            min-height: 170px;
+            .desc{
+                margin: 10px 5px;
+                color: $light-1;
+            }
+        }
+        .card-footer{
+            .badge{
+                color: $light;
+                margin-right: 4px;
+                border:1px solid $warning;
+            }
+        }
+        &:hover{
+            transform: translate(0, -5px);
+            box-shadow: 0 0 10px $dark-1;
+            .card-header{
+                .card-title{
+                    &::after{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+.section-client{
+    padding: 0;
+    position: relative;
+    background-attachment: fixed;
+    .cover{
+        padding: 60px 0;
+        text-align: center;
+        background-color: rgba($color: $dark-1, $alpha: 0.8);
+        .logo-slide{
+           padding: 8px;
+           margin: 5px 10px;
+           border-radius: 5px;
+           background-color: $light;
+           img{
+               height: 100%;
+           }
+        }
+        .trigger{
+            margin: auto;
+            text-align: center;
+            .btn{
+                margin: 15px;
+                color: $warning;
+                border:1px solid $warning;
+                background-color: transparent;
+                &:hover{
+                    color: $dark;
+                    border:1px solid $light;
+                    background-color: $warning;
+                }
+            }
+        }
+    }
+}

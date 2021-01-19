@@ -1,0 +1,245 @@
+@import 'src/resources/styles/variable';
+.section-about{
+    color: $light;
+    background-color: $dark-1;
+    .user-image{
+        padding: 50px 0;
+        min-height: 100%;
+        text-align: center;
+        img{
+            border-radius: 4px;
+            background-color: $light;
+            border: 3px solid $warning;
+            box-shadow: -15px 15px 0 $dark;
+        }
+    }
+    .name{
+        padding: 5px;
+        color: $warning;
+        margin-left: 80px;
+        position: relative;
+        &::before{
+            top: 18px;
+            content:'';
+            left: -80px;
+            width: 70px;
+            height: 1px;
+            display: block;
+            position: absolute;
+            border-radius: 5px;
+            background: $warning;
+        }
+    }
+    .intro{
+        font-size: 25px;
+    }
+    .details{
+        color: $light;
+        line-height: 2;
+        font-size: 13px;
+        letter-spacing: 1px;
+        padding: 15px 5px 20px;
+        .thanks{
+            color: $warning;
+            font-style: italic;
+            position: relative;
+            &:before {
+                font-size: 18px;
+                content: open-quote;
+            }
+            &:after {
+                font-size: 18px;
+                content: close-quote;
+            }
+        }
+    }
+    .box{
+        padding: 20px;
+        border-radius: 4px;
+        background-color: $dark;
+        .item{
+            padding: 5px 0;
+            b{
+                text-transform: capitalize;
+                &::after{
+                    padding:0 8px;
+                    color: $warning;
+                    content: "\21D2";
+                }
+            }
+        }
+    }
+    .extraLink{
+        padding: 12px 20px;
+        b{
+            font-size: 15px;
+            text-transform: uppercase;
+            &::after{
+                padding:0 5px;
+                font-size: 20px;
+                color: $warning;
+                content: "\21DD";
+            }
+        }
+    }
+}
+//end-> section-information
+.section-skills{
+    color: $light-1;
+    background-color: $dark;
+    .skill{
+        margin:15px 0;
+        .sub{
+            padding: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            position: relative;
+            text-transform: uppercase;
+            .count{
+                float: right;
+                padding: 0 7px;
+                font-size: 12px;
+                border-radius: 3px;
+                border: 1px solid $warning;
+            }
+        }
+        .progress{
+            height: 5px;
+            background-color: $dark-3;
+            .progress-bar{
+                background-color: $warning;
+            }
+        }
+    }
+}
+//end-> resume-skills
+.section-timeline{
+    color: $light;
+    background-color: $dark-3;
+    .timeline{
+        position: relative;
+        padding-bottom: 20px;
+        @media (min-width:992px){
+            padding-left: 30px;
+            &::before{
+                top: -10%;
+                content:'';
+                left: 5px;
+                width: 4px;
+                height: 110%;
+                position: absolute;
+                background-color: $dark;
+            }
+            &::after{
+                top: 10px;
+                content: '';
+                left: -9px;
+                width: 30px;
+                height: 3px;
+                position: absolute;
+                background-color: $warning;
+            }
+        }
+        .reminder{
+            z-index: 2;
+            padding:10px 15px;
+            position: relative;
+            border-radius: 3px;
+            background-color: $dark-2;
+            &::before{
+                top: 70%;
+                left: 45%;
+                width: 3px;
+                content: '';
+                z-index: -1;
+                height: 100%;
+                position: absolute;
+                background-color: $warning;
+            }
+        }
+        .card{
+            z-index: 2;
+            padding:20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            background-color: $dark-2;
+            .card-header{
+                padding:10px 0;
+                display: flex;
+                .card-icon{
+                    padding: 5px;
+                    .mdi {
+                        padding: 7px 10px;
+                        font-size: 25px;
+                        color: $warning;
+                        border-radius: 3px;
+                        background: $dark;
+                    }
+                }
+                .card-title{
+                    padding-left: 15px;
+                    .title{
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        color:$light;
+                    }
+                    .sub-title{
+                        font-size: 13px;
+                        color:$light-1;
+                    }
+                }
+            }
+            .card-body{
+                padding: 10px 5px;
+                color: $light-1;
+            }
+        }
+    }
+}
+//end-> resume-section
+.section-statistics{
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    &::before{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        content: '';
+        height: 100%;
+        padding: 60px 0;
+        position: absolute;
+        background-color: rgba($color: $dark-1, $alpha: 0.6);
+    }
+    .item{
+        .count{
+            font-size: 40;
+            display: block;
+            margin: 25px 0;
+            font-weight: 600;
+            text-align: center;
+            &::after{
+                content: '';
+                height: 2px;
+                width: 80px;
+                display: block;
+                margin:3px auto;
+                border-radius: 100%;
+                background-color: $warning;
+            }
+        }
+        .title{
+            display:block;
+            padding:10px 0;
+            margin: 25px 0;
+            border-radius: 5px;
+            text-transform: uppercase;
+            background-color: rgba($color: $dark-3, $alpha: 0.7);
+        }
+    }
+}
+//end-> statistics-section

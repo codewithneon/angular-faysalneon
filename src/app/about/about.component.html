@@ -1,0 +1,88 @@
+<app-wrapper>
+  <section class="section-about" data-aos="fade-up">
+      <div class="container">
+          <div class="row no-gutters">
+              <div class="col-md-5">
+              <div class="user-image">
+                  <img [src]="photo" alt="" width="240" height="277">
+              </div>
+              </div>
+              <div class="col-md-7">
+                  <div class="name">Hi, I'm {{bio.name}}</div>
+                  <h4 class="intro">{{intro}}</h4>
+                  <article class="details"> {{details}} <br>
+                      <b class="thanks">Thank you for your time and consideration.</b>
+                  </article>
+                  <div class="box row no-gutters">
+                      <div class="col-lg-6">
+                          <div class="item"><b>name</b><span>{{bio.name}}</span></div>
+                          <div class="item"><b>mobile</b><span>{{bio.mobile}}</span></div>
+                          <div class="item"><b>email</b><span>{{bio.email}}</span></div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="item"><b>freelance</b><span>{{bio.freelance}}</span></div>
+                          <div class="item"><b>language</b><span>{{bio.language}}</span></div>
+                          <div class="item"><b>nationality</b><span>{{bio.nationality}}</span></div>
+                      </div>
+                  </div>
+                  <div class="row extraLink">
+                      <b>Links</b> <app-social></app-social>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section *ngIf="SkillList?.length > 0" class="section-skills" data-aos="fade-up">
+      <div class="header">
+          <h5 class="subtitle">Design & Code</h5>
+          <h3 class="title">My Skills</h3>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div *ngFor="let item of SkillList" class="col-md-6 skill" [attr.data-slide]='item.percent'>
+              <div class="sub">{{item.title}} <span class="count">0</span></div>
+              <div class="progress">
+                  <div class="progress-bar"></div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section *ngIf="resumeList?.length > 0" class="section-timeline" data-aos="fade-up">
+      <div class="header">
+          <h5 class="subtitle">Experience & Education</h5>
+          <h3 class="title">My Resume</h3>
+      </div>
+      <div class="container">
+          <div class="row">
+              <article *ngFor="let item of resumeList" class="timeline col-lg-6" >
+                  <span class="reminder">{{item.reminder}}</span>
+                  <div class="card">
+                      <div class="card-header">
+                      <div class="card-icon">
+                          <i class="mdi mdi-{{item.icon}}"></i>
+                      </div>
+                      <div class="card-title">
+                          <div class="title">{{item.title}}</div>
+                          <div class="sub-title">{{item.subtitle}}</div>
+                      </div>
+                      </div>
+                      <div class="card-body">{{item.description}}</div>
+                  </div>
+              </article>
+          </div>
+      </div>
+  </section>
+  <section *ngIf="statisticList?.length > 0" class="section-statistics " data-aos="fade-up" [ngStyle]="{'background-image':'url(' + statisticsBg + ')'}">
+      <div class="cover">
+          <div class="container">
+              <div class="row">
+                  <div *ngFor="let item of statisticList" class="item col-md-6 col-lg-3">
+                      <h3 class="count" [attr.data-count]='item.qty'>0</h3>
+                      <p class="title">{{item.title}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</app-wrapper>

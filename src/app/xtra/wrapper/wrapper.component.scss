@@ -1,0 +1,114 @@
+@import 'src/resources/styles/variable';
+@keyframes animate-up {
+    0%   { bottom: 5%; }
+    100% { bottom: 55%; }
+}
+.route-bar.progress{
+    width: 100%;
+    height: 3px;
+    z-index: 10000;
+    position: fixed;
+    background-color: $dark;
+    .progress-bar{
+        background-size: 1rem 1rem;
+        background-color:  $warning;
+        background-image: linear-gradient(45deg,
+        rgba($color: $dark, $alpha: 0.15) 25%, transparent 25%, transparent 50%,
+        rgba($color: $dark, $alpha: 0.15) 50%,
+        rgba($color: $dark, $alpha: 0.15) 75%, transparent 75%, transparent);
+        animation: progress-bar-stripes 1s linear infinite;
+        -webkit-animation: progress-bar-stripes 1s linear infinite;
+    }
+}
+.app-nav.navbar{
+    background-color: $dark-2;
+    &.navbar-dark .navbar-toggler {
+        padding: 5px;
+        font-size: 12px;
+        color: $light-1;
+        border-color:  $light-1;
+        &:hover,&:focus{
+            outline: 0;
+            border-color: $warning;
+        }
+    }
+    .navbar-brand{
+        .title{
+            margin-left: 8px;
+            font-size: 1.5rem;
+            vertical-align: top;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+    }
+    .nav-link{
+        b{
+            margin-left: 5px;
+            text-transform: uppercase;
+            vertical-align: text-bottom;
+        }
+        &.active{
+            color: $warning;
+        }
+    }
+}
+.app-body{
+    min-height: 100vh;
+}
+.app-footer{
+    text-align: center;
+    padding: 30px 0 10px;
+    background-color: $dark-2;
+    border-top: 1px solid $warning;
+    .copyright{
+        padding: 10px 0;
+        text-transform: lowercase;
+        &::before{
+            color: $warning;
+            content: "\00A9";
+            margin-right: 5px;
+        }
+        a{
+            color: $warning;
+        }
+    }
+}
+.app-sidebar{
+    top: 80px;
+    width: 35px;
+    right: 15px;
+    bottom: 30px;
+    opacity: 0.4;
+    z-index: 10000;
+    position: fixed;
+    transition: all 1s ease-out;
+    .scroll-up{
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 4px;
+        text-align: center;
+        background-color: rgba($color: $light-1, $alpha: 0.4);
+        i.mdi{
+            left: 10%;
+            width: 80%;
+            bottom: 5%;
+            height: 40%;
+            font-size: 22px;
+            color: $light-1;
+            line-height: 1.7;
+            position: absolute;
+            border-radius: 4px;
+            background-color:$dark;
+            border: 1px solid $warning;
+            transition: all 1s ease-out;
+            animation: animate-up 3s infinite;
+        }
+    }
+    &:hover{
+        opacity: 1;
+    }
+}
+
